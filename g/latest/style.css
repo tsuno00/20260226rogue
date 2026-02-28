@@ -1,0 +1,160 @@
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    overflow: hidden;
+    touch-action: none;
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+}
+
+#game-body {
+    display: flex;
+    flex-direction: column; /* デフォルト（縦画面）は縦並び */
+    flex: 1;
+    overflow: hidden;
+}
+
+#main-view {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    overflow: hidden;
+}
+
+#game-canvas {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+#ui-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+#stats {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 8px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row; /* デフォルト（縦画面）は横並び */
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 2px solid #00ff00;
+    z-index: 10;
+    font-size: 0.85em;
+    order: -1; /* デフォルト（縦画面）ではメインの上に表示 */
+}
+
+.stat-item {
+    white-space: nowrap;
+}
+
+#controls {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    pointer-events: auto;
+}
+
+#dpad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.row {
+    display: flex;
+    gap: 6px;
+}
+
+.dbtn {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    color: black;
+    font-size: 1.5em;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dbtn:active {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(0.95);
+}
+
+#log {
+    background: #0a0a0a;
+    padding: 8px 12px;
+    border-top: 1px solid #444;
+    font-size: 0.8em;
+    line-height: 1.4;
+    white-space: pre-line;
+    height: 20vh;
+    overflow-y: auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* 横画面（Landscape）向け対応 */
+@media screen and (orientation: landscape) {
+    #game-body {
+        flex-direction: row; /* 横に並べる */
+    }
+
+    #stats {
+        flex-direction: column; /* ステータスを縦一列に */
+        width: 140px; /* 幅を少し広げて余裕を持たせる */
+        height: 100%;
+        border-bottom: none;
+        border-left: 2px solid #00ff00;
+        justify-content: flex-start;
+        align-items: flex-start; /* 左揃え */
+        padding-top: 20px;
+        padding-left: 15px; /* 左側に余白 */
+        gap: 15px;
+        order: 1; /* メインの右側に表示 */
+        font-size: 0.95em;
+    }
+
+    #log {
+        height: 15vh; /* 横画面では高さをさらに抑える */
+    }
+
+    #controls {
+        bottom: 10px;
+        left: 10px;
+    }
+}
+
+#hp-value { color: #ff5252; }
+#atk-value, #def-value, #floor-value { color: #ffd740; }

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[O]Roguelike</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section class="hud panel" aria-live="polite">
+      <div>HP: <span id="hp">0</span></div>
+      <div>Floor: <span id="floor">1</span></div>
+      <div>ATK: <span id="atk">0</span></div>
+      <div>DEF: <span id="def">0</span></div>
+    </section>
+
+    <section class="game-shell panel">
+      <div class="minimap-wrap" aria-hidden="true">
+        <canvas id="minimap" class="minimap" width="240" height="150"></canvas>
+      </div>
+      <canvas id="map" class="map" role="img" aria-label="Roguelike map"></canvas>
+      <div class="mobile-pad" aria-label="Touch controls">
+        <button type="button" class="pad-btn pad-up" data-move="up" aria-label="Move up">↑</button>
+        <button type="button" class="pad-btn pad-left" data-move="left" aria-label="Move left">←</button>
+        <button type="button" class="pad-btn pad-down" data-move="down" aria-label="Move down">↓</button>
+        <button type="button" class="pad-btn pad-right" data-move="right" aria-label="Move right">→</button>
+      </div>
+      <div id="overlay" class="overlay hidden">
+        <div class="overlay-card">
+          <h2 id="overlayTitle">Game Over</h2>
+          <p id="overlayText"></p>
+          <button id="overlayRestartBtn" type="button">Play Again</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel log-panel">
+      <ul id="log" class="log" aria-live="polite"></ul>
+    </section>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>

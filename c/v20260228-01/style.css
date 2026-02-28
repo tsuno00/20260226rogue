@@ -1,0 +1,180 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #111;
+  color: #eee;
+  font-family: monospace;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  height: 100dvh;
+  overflow: hidden;
+  padding: 0;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+}
+
+#game-area {
+  position: relative;
+  border: 2px solid #444;
+  background: #000;
+  overflow: hidden;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+}
+
+#canvas-wrap {
+  position: relative;
+  width: 100%;
+}
+
+#main-canvas {
+  display: block;
+  width: 100%;
+  image-rendering: pixelated;
+}
+
+#minimap-wrapper {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  border: 2px solid #000;
+  line-height: 0;
+}
+
+#minimap-canvas {
+  image-rendering: pixelated;
+  width: 120px;
+  height: 75px;
+  opacity: 0.5;
+}
+
+#ui-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#stats {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  padding: 3px 8px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ddd;
+}
+
+#message-log {
+  padding: 4px 8px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  font-size: 13px;
+  height: 76px;
+  overflow-y: auto;
+  color: #aaa;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+#overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#overlay.hidden { display: none; }
+
+#overlay-content {
+  background: #222;
+  border: 2px solid #666;
+  padding: 32px 48px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#overlay-title { font-size: 2rem; }
+
+#overlay-btn {
+  padding: 8px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: #444;
+  color: #eee;
+  border: 1px solid #888;
+}
+
+#overlay-btn:hover { background: #666; }
+
+@media (orientation: landscape) {
+  #stats {
+    position: static;
+    flex-direction: column;
+    align-self: stretch;
+    justify-content: flex-start;
+    width: 80px;
+    padding: 8px 6px;
+    gap: 8px;
+    font-size: 12px;
+    border-left: 1px solid #333;
+  }
+
+  #canvas-wrap {
+    flex: 1;
+    width: auto;
+    align-self: center;
+  }
+
+  #main-canvas {
+    width: 100%;
+  }
+}
+
+#dpad {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  display: grid;
+  grid-template-areas: ". up ." "left down right";
+  grid-template-columns: repeat(3, 56px);
+  grid-template-rows: repeat(2, 56px);
+  gap: 3px;
+}
+
+#dpad-up    { grid-area: up; }
+#dpad-left  { grid-area: left; }
+#dpad-down  { grid-area: down; }
+#dpad-right { grid-area: right; }
+
+#dpad button {
+  font-size: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  touch-action: none;
+  user-select: none;
+}
+
+#dpad button:active {
+  background: rgba(255, 255, 255, 0.35);
+}

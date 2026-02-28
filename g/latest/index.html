@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Roguelike Mobile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="game-body">
+            <div id="main-view">
+                <canvas id="game-canvas"></canvas>
+                <div id="ui-overlay">
+                    <div id="controls">
+                        <div id="dpad">
+                            <div class="row">
+                                <button id="btn-up" class="dbtn">▲</button>
+                            </div>
+                            <div class="row">
+                                <button id="btn-left" class="dbtn">◀</button>
+                                <button id="btn-down" class="dbtn">▼</button>
+                                <button id="btn-right" class="dbtn">▶</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="stats">
+                <div class="stat-item">HP: <span id="hp-value">20</span>/20</div>
+                <div class="stat-item">ATK: <span id="atk-value">3</span></div>
+                <div class="stat-item">DEF: <span id="def-value">1</span></div>
+                <div class="stat-item">Floor: <span id="floor-value">1</span></div>
+            </div>
+        </div>
+        <div id="log">Welcome to the deeper dungeon...</div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[C]Rogue</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <div id="game-area">
+      <div id="canvas-wrap">
+        <canvas id="main-canvas" width="500" height="300"></canvas>
+        <div id="minimap-wrapper">
+          <canvas id="minimap-canvas" width="240" height="150"></canvas>
+        </div>
+      </div>
+      <div id="stats">
+        <span id="stat-hp">❤️ HP: 20/20</span>
+        <span id="stat-atk">⚔️ ATK: 3</span>
+        <span id="stat-def">🛡️ DEF: 1</span>
+        <span id="stat-floor">🏚️ B1</span>
+      </div>
+      <div id="dpad">
+        <button id="dpad-up"    type="button">↑</button>
+        <button id="dpad-left"  type="button">←</button>
+        <button id="dpad-down"  type="button">↓</button>
+        <button id="dpad-right" type="button">→</button>
+      </div>
+      <div id="overlay" class="hidden">
+        <div id="overlay-content">
+          <h1 id="overlay-title"></h1>
+          <p id="overlay-msg"></p>
+          <button id="overlay-btn" type="button">もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div id="ui-panel">
+      <div id="message-log"></div>
+    </div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
